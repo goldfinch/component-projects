@@ -10,5 +10,5 @@ class Projects extends Nest
     private static $table_name = 'Projects';
     private static $controller_name = ProjectsController::class;
 
-    private static $icon_class = 'bi-box2-fill';
+    private static $icon_class = 'bi-inboxes-fill';
 }
