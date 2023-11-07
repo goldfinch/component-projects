@@ -1,3 +1,6 @@
 ---
 Name: goldfinch-component-projects
 ---
+Goldfinch\Component\Projects\Admin\ProjectsAdmin:
+  extensions:
+    - Goldfinch\Helpers\Extensions\BlocksAdminExtension
