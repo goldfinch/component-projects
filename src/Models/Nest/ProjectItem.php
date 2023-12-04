@@ -101,6 +101,11 @@ class ProjectItem extends NestedObject
         return ProjectItem::get()->filter(['SortOrder:GreaterThan' => $this->SortOrder])->first();
     }
 
+    public function OtherItems()
+    {
+        return ProjectItem::get()->filter('ID:not', $this->ID)->limit(6);
+    }
+
     public function CMSEditLink()
     {
         $admin = new ProjectsAdmin;
