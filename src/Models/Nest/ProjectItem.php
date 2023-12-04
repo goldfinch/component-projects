@@ -2,13 +2,15 @@
 
 namespace Goldfinch\Component\Projects\Models\Nest;
 
-use Goldfinch\Component\Projects\Pages\Nest\Projects;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Control\Director;
 use SilverStripe\TagField\TagField;
-use Goldfinch\Component\Projects\Models\Nest\ProjectCategory;
 use Goldfinch\Nest\Models\NestedObject;
+use Goldfinch\Component\Projects\Admin\ProjectsAdmin;
+use Goldfinch\Component\Projects\Pages\Nest\Projects;
 use Goldfinch\FocusPointExtra\Forms\UploadFieldWithExtra;
+use Goldfinch\Component\Projects\Models\Nest\ProjectCategory;
 
 class ProjectItem extends NestedObject
 {
@@ -85,6 +87,24 @@ class ProjectItem extends NestedObject
         );
 
         return $fields;
+    }
+
+    // TODO: check if SortOrder exists
+    public function nextItem()
+    {
+        return ProjectItem::get()->filter(['SortOrder:LessThan' => $this->SortOrder])->Sort('SortOrder DESC')->first();
+    }
+
+    // TODO: check if SortOrder exists
+    public function previousItem()
+    {
+        return ProjectItem::get()->filter(['SortOrder:GreaterThan' => $this->SortOrder])->first();
+    }
+
+    public function CMSEditLink()
+    {
+        $admin = new ProjectsAdmin;
+        return Director::absoluteBaseURL() . '/' . $admin->getCMSEditLinkForManagedDataObject($this);
     }
 
     // public function validate()
