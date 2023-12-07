@@ -1,0 +1,11 @@
+---
+Name: goldfinch-component-projects-sortable
+---
+
+Goldfinch\Component\Projects\Models\Nest\ProjectItem:
+  extensions:
+    - Goldfinch\Helpers\Extensions\DataObjectSortable
+
+Goldfinch\Component\Projects\Models\Nest\ProjectCategory:
+  extensions:
+    - Goldfinch\Helpers\Extensions\DataObjectSortable

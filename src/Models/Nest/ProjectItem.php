@@ -23,9 +23,7 @@ class ProjectItem extends NestedObject
     private static $singular_name = 'project';
     private static $plural_name = 'projects';
 
-    private static $db = [
-        'SortOrder' => 'Int',
-    ];
+    private static $db = [];
 
     private static $many_many = [
         'Categories' => ProjectCategory::class,
@@ -54,7 +52,7 @@ class ProjectItem extends NestedObject
     // private static $belongs_to = [];
     // private static $has_many = [];
     // private static $belongs_many_many = [];
-    private static $default_sort = 'SortOrder';
+    // private static $default_sort = null;
     // private static $indexes = null;
     // private static $owns = [];
     // private static $casting = [];
@@ -76,10 +74,6 @@ class ProjectItem extends NestedObject
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-
-        $fields->removeByName([
-          'SortOrder',
-        ]);
 
         $fields->addFieldsToTab(
             'Root.Main',
