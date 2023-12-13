@@ -4,3 +4,12 @@ Name: goldfinch-component-projects
 Goldfinch\Component\Projects\Admin\ProjectsAdmin:
   extensions:
     - Goldfinch\Helpers\Extensions\BlocksAdminExtension
+
+---
+Name: goldfinch-component-projects-icon
+Only:
+  moduleexists: 'goldfinch/enchantment'
+---
+
+Goldfinch\Component\Projects\Admin\ProjectsAdmin:
+  menu_icon_class: 'bi-inboxes-fill'

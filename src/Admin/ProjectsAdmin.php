@@ -16,7 +16,7 @@ class ProjectsAdmin extends ModelAdmin
 
     private static $url_segment = 'projects';
     private static $menu_title = 'Projects';
-    private static $menu_icon_class = 'bi-inboxes-fill';
+    private static $menu_icon_class = 'font-icon-block-accordion';
     // private static $menu_priority = -0.5;
 
     private static $managed_models = [
