@@ -13,3 +13,9 @@ Only:
 
 Goldfinch\Component\Projects\Admin\ProjectsAdmin:
   menu_icon_class: 'bi-inboxes-fill'
+
+Goldfinch\Component\Projects\Pages\Nest\Projects:
+  icon_class: 'bi-inboxes-fill'
+
+Goldfinch\Component\Projects\Blocks\ProjectsBlock:
+  icon: 'bi-inboxes-fill'
