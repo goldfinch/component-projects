@@ -86,6 +86,8 @@ class ProjectItem extends NestedObject
             ]
         );
 
+        $fields->dataFieldByName('Image')->setFolderName('projects');
+
         return $fields;
     }
 
