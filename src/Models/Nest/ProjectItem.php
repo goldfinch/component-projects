@@ -9,7 +9,7 @@ use SilverStripe\TagField\TagField;
 use Goldfinch\Nest\Models\NestedObject;
 use Goldfinch\Component\Projects\Admin\ProjectsAdmin;
 use Goldfinch\Component\Projects\Pages\Nest\Projects;
-use Goldfinch\FocusPointExtra\Forms\UploadFieldWithExtra;
+use Goldfinch\ImageEditor\Forms\EditableUploadField;
 use Goldfinch\Component\Projects\Models\Nest\ProjectCategory;
 
 class ProjectItem extends NestedObject
@@ -78,7 +78,7 @@ class ProjectItem extends NestedObject
         $fields->addFieldsToTab(
             'Root.Main',
             [
-                ...UploadFieldWithExtra::create('Image', 'Image', $fields, $this)->getFields(),
+                ...EditableUploadField::create('Image', 'Image', $fields, $this)->getFields(),
                 ...[
                     TextField::create('Title', 'Title'),
                     TagField::create('Categories', 'Categories', ProjectCategory::get())
