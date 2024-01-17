@@ -4,7 +4,6 @@ namespace Goldfinch\Component\Projects\Admin;
 
 use SilverStripe\Admin\ModelAdmin;
 use JonoM\SomeConfig\SomeConfigAdmin;
-use SilverStripe\Forms\GridField\GridFieldConfig;
 use Goldfinch\Component\Projects\Blocks\ProjectsBlock;
 use Goldfinch\Component\Projects\Configs\ProjectConfig;
 use Goldfinch\Component\Projects\Models\Nest\ProjectItem;
@@ -33,44 +32,4 @@ class ProjectsAdmin extends ModelAdmin
             'title' => 'Settings',
         ],
     ];
-
-    // public $showImportForm = true;
-    // public $showSearchForm = true;
-    // private static $page_length = 30;
-
-    public function getList()
-    {
-        $list = parent::getList();
-
-        // ..
-
-        return $list;
-    }
-
-    protected function getGridFieldConfig(): GridFieldConfig
-    {
-        $config = parent::getGridFieldConfig();
-
-        // ..
-
-        return $config;
-    }
-
-    public function getSearchContext()
-    {
-        $context = parent::getSearchContext();
-
-        // ..
-
-        return $context;
-    }
-
-    public function getEditForm($id = null, $fields = null)
-    {
-        $form = parent::getEditForm($id, $fields);
-
-        // ..
-
-        return $form;
-    }
 }

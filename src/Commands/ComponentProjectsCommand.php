@@ -2,10 +2,8 @@
 
 namespace Goldfinch\Component\Projects\Commands;
 
-use Goldfinch\Taz\Services\InputOutput;
 use Goldfinch\Taz\Console\GeneratorCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\ArrayInput;
 
 #[AsCommand(name: 'vendor:component-projects')]
