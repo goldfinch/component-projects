@@ -5,7 +5,6 @@ namespace Goldfinch\Component\Projects\Models\Nest;
 use Goldfinch\Harvest\Harvest;
 use Goldfinch\Nest\Models\NestedObject;
 use Goldfinch\Harvest\Traits\HarvestTrait;
-use Goldfinch\Component\Projects\Models\Nest\ProjectItem;
 
 class ProjectCategory extends NestedObject
 {

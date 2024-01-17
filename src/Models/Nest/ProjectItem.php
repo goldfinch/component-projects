@@ -9,8 +9,6 @@ use Goldfinch\Nest\Models\NestedObject;
 use Goldfinch\Harvest\Traits\HarvestTrait;
 use Goldfinch\Component\Projects\Admin\ProjectsAdmin;
 use Goldfinch\Component\Projects\Pages\Nest\Projects;
-use Goldfinch\Component\Projects\Models\Nest\ProjectItem;
-use Goldfinch\Component\Projects\Models\Nest\ProjectCategory;
 
 class ProjectItem extends NestedObject
 {
