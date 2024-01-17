@@ -17,23 +17,33 @@ class ComponentProjectsCommand extends GeneratorCommand
 
     protected function execute($input, $output): int
     {
-        $command = $this->getApplication()->find('vendor:component-projects-projectitem');
+        $command = $this->getApplication()->find(
+            'vendor:component-projects-projectitem',
+        );
         $input = new ArrayInput(['name' => 'ProjectItem']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('vendor:component-projects-projectcategory');
+        $command = $this->getApplication()->find(
+            'vendor:component-projects-projectcategory',
+        );
         $input = new ArrayInput(['name' => 'ProjectCategory']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('vendor:component-projects-projectconfig');
+        $command = $this->getApplication()->find(
+            'vendor:component-projects-projectconfig',
+        );
         $input = new ArrayInput(['name' => 'ProjectConfig']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('vendor:component-projects-projectsblock');
+        $command = $this->getApplication()->find(
+            'vendor:component-projects-projectsblock',
+        );
         $input = new ArrayInput(['name' => 'ProjectsBlock']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('templates:component-projects');
+        $command = $this->getApplication()->find(
+            'templates:component-projects',
+        );
         $input = new ArrayInput([]);
         $command->run($input, $output);
 

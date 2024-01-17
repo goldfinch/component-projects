@@ -2,13 +2,13 @@
 
 namespace Goldfinch\Component\Projects\Admin;
 
-use Goldfinch\Component\Projects\Models\Nest\ProjectItem;
-use Goldfinch\Component\Projects\Blocks\ProjectsBlock;
-use Goldfinch\Component\Projects\Configs\ProjectConfig;
-use Goldfinch\Component\Projects\Models\Nest\ProjectCategory;
 use SilverStripe\Admin\ModelAdmin;
 use JonoM\SomeConfig\SomeConfigAdmin;
 use SilverStripe\Forms\GridField\GridFieldConfig;
+use Goldfinch\Component\Projects\Blocks\ProjectsBlock;
+use Goldfinch\Component\Projects\Configs\ProjectConfig;
+use Goldfinch\Component\Projects\Models\Nest\ProjectItem;
+use Goldfinch\Component\Projects\Models\Nest\ProjectCategory;
 
 class ProjectsAdmin extends ModelAdmin
 {
@@ -21,16 +21,16 @@ class ProjectsAdmin extends ModelAdmin
 
     private static $managed_models = [
         ProjectItem::class => [
-            'title'=> 'Projects',
+            'title' => 'Projects',
         ],
         ProjectCategory::class => [
-            'title'=> 'Categories',
+            'title' => 'Categories',
         ],
         ProjectsBlock::class => [
-            'title'=> 'Blocks',
+            'title' => 'Blocks',
         ],
         ProjectConfig::class => [
-            'title'=> 'Settings',
+            'title' => 'Settings',
         ],
     ];
 

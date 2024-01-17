@@ -2,7 +2,6 @@
 Name: app-{{ class }}
 After: "goldfinch/component-projects"
 ---
-
 Goldfinch\Component\Projects\Models\Nest\ProjectItem:
   extensions:
     - {{ namespace }}\ProjectItemExtension

@@ -28,14 +28,10 @@ class ProjectCategory extends NestedObject
 
     public function harvest(Harvest $harvest)
     {
-        $harvest->require([
-            'Title',
-        ]);
+        $harvest->require(['Title']);
 
         $harvest->fields([
-            'Root.Main' => [
-                $harvest->string('Title'),
-            ],
+            'Root.Main' => [$harvest->string('Title')],
         ]);
     }
 }

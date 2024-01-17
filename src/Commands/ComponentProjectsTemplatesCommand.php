@@ -29,20 +29,16 @@ class ComponentProjectsTemplatesCommand extends GeneratorCommand
 
         $ssTheme = null;
 
-        if (!$themes || !$themes->count())
-        {
+        if (!$themes || !$themes->count()) {
             $io->text('Themes not found');
 
             return Command::SUCCESS;
-        }
-        else if ($themes->count() > 1)
-        {
+        } elseif ($themes->count() > 1) {
             // choose theme
 
             $availableThemes = [];
 
-            foreach ($themes as $theme)
-            {
+            foreach ($themes as $theme) {
                 $availableThemes[] = $theme->getFilename();
             }
 
@@ -50,21 +46,17 @@ class ComponentProjectsTemplatesCommand extends GeneratorCommand
             $question = new ChoiceQuestion(
                 'Which templete?',
                 $availableThemes,
-                0
+                0,
             );
             $question->setErrorMessage('Theme %s is invalid.');
             $theme = $helper->ask($input, $output, $question);
-        }
-        else
-        {
-            foreach ($themes as $themeItem)
-            {
+        } else {
+            foreach ($themes as $themeItem) {
                 $theme = $themeItem->getFilename();
             }
         }
 
-        if (isset($theme) && $theme)
-        {
+        if (isset($theme) && $theme) {
             $this->copyTemplates($theme);
 
             $io->text('Done');
@@ -77,10 +69,28 @@ class ComponentProjectsTemplatesCommand extends GeneratorCommand
     {
         $fs = new Filesystem();
 
-        $fs->copy(BASE_PATH . '/vendor/goldfinch/component-projects/templates/Goldfinch/Component/Projects/Blocks/ProjectsBlock.ss', 'themes/' . $theme . '/templates/Goldfinch/Component/Projects/Blocks/ProjectsBlock.ss'); // , true);
+        $fs->copy(
+            BASE_PATH .
+                '/vendor/goldfinch/component-projects/templates/Goldfinch/Component/Projects/Blocks/ProjectsBlock.ss',
+            'themes/' .
+                $theme .
+                '/templates/Goldfinch/Component/Projects/Blocks/ProjectsBlock.ss',
+        ); // , true);
 
-        $fs->copy(BASE_PATH . '/vendor/goldfinch/component-projects/templates/Goldfinch/Component/Projects/Models/Nest/ProjectItem.ss', 'themes/' . $theme . '/templates/Goldfinch/Component/Projects/Models/Nest/ProjectItem.ss'); // , true);
+        $fs->copy(
+            BASE_PATH .
+                '/vendor/goldfinch/component-projects/templates/Goldfinch/Component/Projects/Models/Nest/ProjectItem.ss',
+            'themes/' .
+                $theme .
+                '/templates/Goldfinch/Component/Projects/Models/Nest/ProjectItem.ss',
+        ); // , true);
 
-        $fs->copy(BASE_PATH . '/vendor/goldfinch/component-projects/templates/Goldfinch/Component/Projects/Pages/Nest/Projects.ss', 'themes/' . $theme . '/templates/Goldfinch/Component/Projects/Pages/Nest/Projects.ss'); // , true);
+        $fs->copy(
+            BASE_PATH .
+                '/vendor/goldfinch/component-projects/templates/Goldfinch/Component/Projects/Pages/Nest/Projects.ss',
+            'themes/' .
+                $theme .
+                '/templates/Goldfinch/Component/Projects/Pages/Nest/Projects.ss',
+        ); // , true);
     }
 }

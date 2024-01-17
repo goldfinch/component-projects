@@ -41,10 +41,7 @@ class ProjectItem extends NestedObject
         'Image' => Image::class,
     ];
 
-    private static $owns = [
-        'Image',
-        'Categories',
-    ];
+    private static $owns = ['Image', 'Categories'];
 
     private static $summary_fields = [
         'Image.CMSThumbnail' => 'Image',
@@ -52,9 +49,7 @@ class ProjectItem extends NestedObject
 
     public function harvest(Harvest $harvest)
     {
-        $harvest->require([
-            'Title',
-        ]);
+        $harvest->require(['Title']);
 
         $harvest->fields([
             'Root.Main' => [
@@ -69,22 +64,31 @@ class ProjectItem extends NestedObject
 
     public function getNextItem()
     {
-        return ProjectItem::get()->filter(['SortOrder:LessThan' => $this->SortOrder])->Sort('SortOrder DESC')->first();
+        return ProjectItem::get()
+            ->filter(['SortOrder:LessThan' => $this->SortOrder])
+            ->Sort('SortOrder DESC')
+            ->first();
     }
 
     public function getPreviousItem()
     {
-        return ProjectItem::get()->filter(['SortOrder:GreaterThan' => $this->SortOrder])->first();
+        return ProjectItem::get()
+            ->filter(['SortOrder:GreaterThan' => $this->SortOrder])
+            ->first();
     }
 
     public function getOtherItems()
     {
-        return ProjectItem::get()->filter('ID:not', $this->ID)->limit(6);
+        return ProjectItem::get()
+            ->filter('ID:not', $this->ID)
+            ->limit(6);
     }
 
     public function CMSEditLink()
     {
-        $admin = new ProjectsAdmin;
-        return Director::absoluteBaseURL() . '/' . $admin->getCMSEditLinkForManagedDataObject($this);
+        $admin = new ProjectsAdmin();
+        return Director::absoluteBaseURL() .
+            '/' .
+            $admin->getCMSEditLinkForManagedDataObject($this);
     }
 }
