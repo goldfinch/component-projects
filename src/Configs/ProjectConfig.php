@@ -16,7 +16,7 @@ class ProjectConfig extends DataObject implements TemplateGlobalProvider
 
     private static $db = [];
 
-    public function harvest(Harvest $harvest): void: void
+    public function harvest(Harvest $harvest): void
     {
         // ..
     }
