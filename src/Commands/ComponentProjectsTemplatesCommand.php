@@ -57,11 +57,12 @@ class ComponentProjectsTemplatesCommand extends GeneratorCommand
         if (isset($theme) && $theme) {
             $this->copyTemplates($theme);
 
-            $io->text('Done');
+            $io->right('The [component-projects] templates have been created');
+
             return Command::SUCCESS;
         }
 
-        return Command::FAILURE;
+        $io->wrong('The [component-projects] templates creation failed');
     }
 
     private function copyTemplates($theme)
