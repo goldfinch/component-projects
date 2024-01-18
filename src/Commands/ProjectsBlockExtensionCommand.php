@@ -5,10 +5,10 @@ namespace Goldfinch\Component\Projects\Commands;
 use Goldfinch\Taz\Console\GeneratorCommand;
 use Symfony\Component\Console\Command\Command;
 
-#[AsCommand(name: 'vendor:component-projects-projectsblock')]
+#[AsCommand(name: 'vendor:component-projects:projectsblock')]
 class ProjectsBlockExtensionCommand extends GeneratorCommand
 {
-    protected static $defaultName = 'vendor:component-projects-projectsblock';
+    protected static $defaultName = 'vendor:component-projects:projectsblock';
 
     protected $description = 'Create ProjectsBlock extension';
 

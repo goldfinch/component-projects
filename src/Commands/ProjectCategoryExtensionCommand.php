@@ -5,10 +5,10 @@ namespace Goldfinch\Component\Projects\Commands;
 use Goldfinch\Taz\Console\GeneratorCommand;
 use Symfony\Component\Console\Command\Command;
 
-#[AsCommand(name: 'vendor:component-projects-projectcategory')]
+#[AsCommand(name: 'vendor:component-projects:projectcategory')]
 class ProjectCategoryExtensionCommand extends GeneratorCommand
 {
-    protected static $defaultName = 'vendor:component-projects-projectcategory';
+    protected static $defaultName = 'vendor:component-projects:projectcategory';
 
     protected $description = 'Create ProjectCategory extension';
 
