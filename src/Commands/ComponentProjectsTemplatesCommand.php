@@ -60,9 +60,10 @@ class ComponentProjectsTemplatesCommand extends GeneratorCommand
             $this->copyTemplates($theme);
 
             $io->text('Done');
-
             return Command::SUCCESS;
         }
+
+        return Command::FAILURE;
     }
 
     private function copyTemplates($theme)

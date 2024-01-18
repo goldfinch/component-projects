@@ -1,0 +1,9 @@
+parameters:
+  paths:
+    - src
+  level: 9
+  ignoreErrors:
+    - "#AsCommand does not exist#"
+    - "#is never read, only written#"
+    - "#has no type specified#"
+    - "#Access to an undefined property#"
