@@ -4,16 +4,16 @@ After: "goldfinch/component-projects"
 ---
 Goldfinch\Component\Projects\Models\Nest\ProjectItem:
   extensions:
-    - {{ namespace_root }}ProjectItemExtension
+    - {{ namespace_root_extensions }}ProjectItemExtension
 
 Goldfinch\Component\Projects\Models\Nest\ProjectCategory:
   extensions:
-    - {{ namespace_root }}ProjectCategoryExtension
+    - {{ namespace_root_extensions }}ProjectCategoryExtension
 
 Goldfinch\Component\Projects\Configs\ProjectConfig:
   extensions:
-    - {{ namespace_root }}ProjectConfigExtension
+    - {{ namespace_root_extensions }}ProjectConfigExtension
 
 Goldfinch\Component\Projects\Blocks\ProjectsBlock:
   extensions:
-    - {{ namespace_root }}ProjectsBlockExtension
+    - {{ namespace_root_extensions }}ProjectsBlockExtension
