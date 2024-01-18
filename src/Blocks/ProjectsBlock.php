@@ -16,17 +16,13 @@ class ProjectsBlock extends BaseElement
     private static $singular_name = 'Projects';
     private static $plural_name = 'Projects';
 
-    private static $db = [
-        // 'BlockTitle' => 'Varchar',
-        // 'BlockSubTitle' => 'Varchar',
-        // 'BlockText' => 'HTMLText',
-    ];
+    private static $db = [];
 
     private static $inline_editable = false;
     private static $description = '';
     private static $icon = 'font-icon-block-accordion';
 
-    public function harvest(Harvest $harvest)
+    public function harvest(Harvest $harvest): void
     {
         // ..
     }

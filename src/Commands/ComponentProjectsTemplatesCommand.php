@@ -18,8 +18,6 @@ class ComponentProjectsTemplatesCommand extends GeneratorCommand
 
     protected function execute($input, $output): int
     {
-        // parent::execute($input, $output);
-
         $io = new InputOutput($input, $output);
 
         $themes = Finder::create()
@@ -76,7 +74,7 @@ class ComponentProjectsTemplatesCommand extends GeneratorCommand
             'themes/' .
                 $theme .
                 '/templates/Goldfinch/Component/Projects/Blocks/ProjectsBlock.ss',
-        ); // , true);
+        );
 
         $fs->copy(
             BASE_PATH .
@@ -84,7 +82,7 @@ class ComponentProjectsTemplatesCommand extends GeneratorCommand
             'themes/' .
                 $theme .
                 '/templates/Goldfinch/Component/Projects/Models/Nest/ProjectItem.ss',
-        ); // , true);
+        );
 
         $fs->copy(
             BASE_PATH .
@@ -92,6 +90,6 @@ class ComponentProjectsTemplatesCommand extends GeneratorCommand
             'themes/' .
                 $theme .
                 '/templates/Goldfinch/Component/Projects/Pages/Nest/Projects.ss',
-        ); // , true);
+        );
     }
 }
