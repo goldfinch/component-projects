@@ -24,7 +24,9 @@ class ProjectItem extends NestedObject
     private static $singular_name = 'project';
     private static $plural_name = 'projects';
 
-    private static $db = [];
+    private static $db = [
+        'Content' => 'HTMLText',
+    ];
 
     private static $many_many = [
         'Categories' => ProjectCategory::class,
@@ -53,6 +55,7 @@ class ProjectItem extends NestedObject
         $harvest->fields([
             'Root.Main' => [
                 $harvest->string('Title'),
+                $harvest->html('Content'),
                 $harvest->tag('Categories'),
                 ...$harvest->media('Image'),
             ],
