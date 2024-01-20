@@ -32,4 +32,25 @@ class ProjectsAdmin extends ModelAdmin
             'title' => 'Settings',
         ],
     ];
+
+    public function getManagedModels()
+    {
+        $models = parent::getManagedModels();
+
+        $cfg = ProjectConfig::current_config();
+
+        if ($cfg->DisabledCategories) {
+            unset($models[ProjectCategory::class]);
+        }
+
+        if (!class_exists('DNADesign\Elemental\Models\BaseElement')) {
+            unset($models[ProjectsBlock::class]);
+        }
+
+        if (empty($cfg->config('db')->db)) {
+            unset($models[ProjectConfig::class]);
+        }
+
+        return $models;
+    }
 }
