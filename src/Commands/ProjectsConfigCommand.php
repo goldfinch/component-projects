@@ -6,17 +6,17 @@ use Goldfinch\Taz\Console\GeneratorCommand;
 use Symfony\Component\Console\Command\Command;
 
 #[AsCommand(name: 'vendor:component-projects:config')]
-class ComponentProjectsConfigCommand extends GeneratorCommand
+class ProjectsConfigCommand extends GeneratorCommand
 {
     protected static $defaultName = 'vendor:component-projects:config';
 
-    protected $description = 'Create component-projects config';
+    protected $description = 'Create Projects YML config';
 
     protected $path = 'app/_config';
 
-    protected $type = 'component-projects yml config';
+    protected $type = 'config';
 
-    protected $stub = 'projectconfig.stub';
+    protected $stub = './stubs/config.stub';
 
     protected $extension = '.yml';
 

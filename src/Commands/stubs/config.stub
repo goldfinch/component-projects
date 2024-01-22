@@ -1,0 +1,34 @@
+---
+Name: app-{{ class }}
+After: "goldfinch/component-projects"
+---
+Goldfinch\Component\Projects\Admin\ProjectsAdmin:
+  # menu_icon_class: ""
+  extensions:
+    - {{ namespace_root_extensions }}ProjectsAdminExtension
+
+Goldfinch\Component\Projects\Pages\Nest\Projects:
+  # icon_class: ""
+  extensions:
+    - {{ namespace_root_extensions }}ProjectsExtension
+
+Goldfinch\Component\Projects\Controllers\Nest\ProjectsController:
+  extensions:
+    - {{ namespace_root_extensions }}ProjectsControllerExtension
+
+Goldfinch\Component\Projects\Configs\ProjectConfig:
+  extensions:
+    - {{ namespace_root_extensions }}ProjectConfigExtension
+
+Goldfinch\Component\Projects\Blocks\ProjectsBlock:
+  # icon: ""
+  extensions:
+    - {{ namespace_root_extensions }}ProjectsBlockExtension
+
+Goldfinch\Component\Projects\Models\Nest\ProjectItem:
+  extensions:
+    - {{ namespace_root_extensions }}ProjectItemExtension
+
+Goldfinch\Component\Projects\Models\Nest\ProjectCategory:
+  extensions:
+    - {{ namespace_root_extensions }}ProjectCategoryExtension
