@@ -14,7 +14,7 @@ class ProjectCategoryExtensionCommand extends GeneratorCommand
 
     protected $path = '[psr4]/Extensions';
 
-    protected $type = 'component-projects category extension';
+    protected $type = 'extension';
 
     protected $stub = './stubs/projectcategory-extension.stub';
 
