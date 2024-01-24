@@ -20,6 +20,10 @@ class ProjectsByCategory extends Nest
 
     private static $icon_class = 'font-icon-block-accordion';
 
+    private static $can_be_root = false;
+
+    private static $description = 'Nested pseudo page, to display individual categories. Can only be added within Projects page as a child page';
+
     public function harvest(Harvest $harvest): void
     {
         $harvest->remove([

@@ -5,6 +5,7 @@ namespace Goldfinch\Component\Projects\Pages\Nest;
 use Goldfinch\Harvest\Harvest;
 use Goldfinch\Nest\Pages\Nest;
 use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Component\Projects\Models\Nest\ProjectItem;
 use Goldfinch\Component\Projects\Pages\Nest\ProjectsByCategory;
 use Goldfinch\Component\Projects\Controllers\Nest\ProjectsController;
 
@@ -27,6 +28,14 @@ class Projects extends Nest
 
     public function harvestSettings(Harvest $harvest): void
     {
-        // ..
+        $harvest->disable(['NestedObject', 'NestedPseudo']);
+    }
+
+    protected function onBeforeWrite()
+    {
+        parent::onBeforeWrite();
+
+        $this->NestedObject = ProjectItem::class;
+        $this->NestedPseudo = 0;
     }
 }
