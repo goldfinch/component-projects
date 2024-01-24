@@ -20,7 +20,9 @@ class ProjectCategory extends NestedObject
     private static $singular_name = 'category';
     private static $plural_name = 'categories';
 
-    private static $db = [];
+    private static $db = [
+        'Content' => 'HTMLText',
+    ];
 
     private static $belongs_many_many = [
         'Items' => ProjectItem::class,
@@ -31,7 +33,28 @@ class ProjectCategory extends NestedObject
         $harvest->require(['Title']);
 
         $harvest->fields([
-            'Root.Main' => [$harvest->string('Title')],
+            'Root.Main' => [
+                $harvest->string('Title'),
+                $harvest->html('Content'),
+            ],
         ]);
+    }
+
+    public function List()
+    {
+        // pagi/loadable ?
+
+        return $this->Items();
+    }
+
+    public function OtherCategories($type = 'mix', $limit = 6, $escapeEmpty = true)
+    {
+        $filter = ['ID:not' => $this->ID];
+
+        if ($escapeEmpty) {
+            $filter['Items.Count():GreaterThan'] = 0;
+        }
+
+        return ProjectCategory::get()->filter($filter)->shuffle()->limit($limit);
     }
 }

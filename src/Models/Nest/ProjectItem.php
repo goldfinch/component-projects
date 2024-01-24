@@ -70,26 +70,28 @@ class ProjectItem extends NestedObject
         }
     }
 
-    public function getNextItem()
+    // type : mix | inside | outside
+    public function OtherItems($type = 'mix', $limit = 6)
     {
-        return ProjectItem::get()
-            ->filter(['SortOrder:LessThan' => $this->SortOrder])
-            ->Sort('SortOrder DESC')
-            ->first();
-    }
+        $model = ProjectItem::get()->filter(['ID:not' => $this->ID])->shuffle();
 
-    public function getPreviousItem()
-    {
-        return ProjectItem::get()
-            ->filter(['SortOrder:GreaterThan' => $this->SortOrder])
-            ->first();
-    }
+        if ($type == 'mix') {
+            //
+        } else if ($type == 'inside') {
+            $categories = $this->Categories()->column('ID');
 
-    public function getOtherItems()
-    {
-        return ProjectItem::get()
-            ->filter('ID:not', $this->ID)
-            ->limit(6);
+            if (count($categories)) {
+                $model = $model->filterAny('Categories.ID', $categories);
+            }
+        } else if ($type == 'outside') {
+            $categories = $this->Categories()->column('ID');
+
+            if (count($categories)) {
+                $model = $model->filterAny('Categories.ID:not', $categories);
+            }
+        }
+
+        return $model->limit($limit);
     }
 
     public function CMSEditLink()
