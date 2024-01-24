@@ -2,15 +2,15 @@
 
 namespace Goldfinch\Component\Projects\Configs;
 
-use Goldfinch\Harvest\Harvest;
+use Goldfinch\Fielder\Fielder;
 use JonoM\SomeConfig\SomeConfig;
 use SilverStripe\ORM\DataObject;
-use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Fielder\Traits\FielderTrait;
 use SilverStripe\View\TemplateGlobalProvider;
 
 class ProjectConfig extends DataObject implements TemplateGlobalProvider
 {
-    use SomeConfig, HarvestTrait;
+    use SomeConfig, FielderTrait;
 
     private static $table_name = 'ProjectConfig';
 
@@ -18,11 +18,11 @@ class ProjectConfig extends DataObject implements TemplateGlobalProvider
         'DisabledCategories' => 'Boolean',
     ];
 
-    public function harvest(Harvest $harvest): void
+    public function fielder(Fielder $fielder): void
     {
-        $harvest->fields([
+        $fielder->fields([
             'Root.Main' => [
-                $harvest->checkbox('DisabledCategories', 'Disabled categories'),
+                $fielder->checkbox('DisabledCategories', 'Disabled categories'),
             ],
         ]);
     }

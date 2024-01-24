@@ -2,14 +2,14 @@
 
 namespace Goldfinch\Component\Projects\Models\Nest;
 
-use Goldfinch\Harvest\Harvest;
+use Goldfinch\Fielder\Fielder;
 use Goldfinch\Nest\Models\NestedObject;
-use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Projects\Pages\Nest\ProjectsByCategory;
 
 class ProjectCategory extends NestedObject
 {
-    use HarvestTrait;
+    use FielderTrait;
 
     public static $nest_up = null;
     public static $nest_up_children = [];
@@ -28,14 +28,14 @@ class ProjectCategory extends NestedObject
         'Items' => ProjectItem::class,
     ];
 
-    public function harvest(Harvest $harvest): void
+    public function fielder(Fielder $fielder): void
     {
-        $harvest->require(['Title']);
+        $fielder->require(['Title']);
 
-        $harvest->fields([
+        $fielder->fields([
             'Root.Main' => [
-                $harvest->string('Title'),
-                $harvest->html('Content'),
+                $fielder->string('Title'),
+                $fielder->html('Content'),
             ],
         ]);
     }

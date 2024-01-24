@@ -2,16 +2,16 @@
 
 namespace Goldfinch\Component\Projects\Pages\Nest;
 
-use Goldfinch\Harvest\Harvest;
+use Goldfinch\Fielder\Fielder;
 use Goldfinch\Nest\Pages\Nest;
-use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Projects\Models\Nest\ProjectItem;
 use Goldfinch\Component\Projects\Pages\Nest\ProjectsByCategory;
 use Goldfinch\Component\Projects\Controllers\Nest\ProjectsController;
 
 class Projects extends Nest
 {
-    use HarvestTrait;
+    use FielderTrait;
 
     private static $table_name = 'Projects';
 
@@ -21,14 +21,14 @@ class Projects extends Nest
 
     private static $icon_class = 'font-icon-block-accordion';
 
-    public function harvest(Harvest $harvest): void
+    public function fielder(Fielder $fielder): void
     {
         // ..
     }
 
-    public function harvestSettings(Harvest $harvest): void
+    public function fielderSettings(Fielder $fielder): void
     {
-        $harvest->disable(['NestedObject', 'NestedPseudo']);
+        $fielder->disable(['NestedObject', 'NestedPseudo']);
     }
 
     protected function onBeforeWrite()

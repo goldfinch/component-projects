@@ -2,15 +2,15 @@
 
 namespace Goldfinch\Component\Projects\Pages\Nest;
 
-use Goldfinch\Harvest\Harvest;
+use Goldfinch\Fielder\Fielder;
 use Goldfinch\Nest\Pages\Nest;
-use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Projects\Models\Nest\ProjectCategory;
 use Goldfinch\Component\Projects\Controllers\Nest\ProjectsByCategoryController;
 
 class ProjectsByCategory extends Nest
 {
-    use HarvestTrait;
+    use FielderTrait;
 
     private static $table_name = 'ProjectsByCategory';
 
@@ -24,23 +24,23 @@ class ProjectsByCategory extends Nest
 
     private static $description = 'Nested pseudo page, to display individual categories. Can only be added within Projects page as a child page';
 
-    public function harvest(Harvest $harvest): void
+    public function fielder(Fielder $fielder): void
     {
-        $harvest->remove([
+        $fielder->remove([
             'Content',
             'MenuTitle',
         ]);
 
-        $harvest->description('Title', 'Does not show up anywhere except SiteTree in the CMS');
+        $fielder->description('Title', 'Does not show up anywhere except SiteTree in the CMS');
     }
 
-    public function harvestSettings(Harvest $harvest): void
+    public function fielderSettings(Fielder $fielder): void
     {
-        $harvest->removeFieldsInTab('Root.Search');
-        $harvest->removeFieldsInTab('Root.General');
-        $harvest->removeFieldsInTab('Root.SEO');
+        $fielder->removeFieldsInTab('Root.Search');
+        $fielder->removeFieldsInTab('Root.General');
+        $fielder->removeFieldsInTab('Root.SEO');
 
-        $harvest->disable(['NestedObject', 'NestedPseudo']);
+        $fielder->disable(['NestedObject', 'NestedPseudo']);
     }
 
     protected function onBeforeWrite()
