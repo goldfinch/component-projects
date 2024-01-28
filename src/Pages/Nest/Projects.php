@@ -4,6 +4,7 @@ namespace Goldfinch\Component\Projects\Pages\Nest;
 
 use Goldfinch\Fielder\Fielder;
 use Goldfinch\Nest\Pages\Nest;
+use Goldfinch\Mill\Traits\Millable;
 use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Projects\Models\Nest\ProjectItem;
 use Goldfinch\Component\Projects\Pages\Nest\ProjectsByCategory;
@@ -11,7 +12,7 @@ use Goldfinch\Component\Projects\Controllers\Nest\ProjectsController;
 
 class Projects extends Nest
 {
-    use FielderTrait;
+    use FielderTrait, Millable;
 
     private static $table_name = 'Projects';
 
@@ -20,6 +21,10 @@ class Projects extends Nest
     private static $allowed_children = [ProjectsByCategory::class];
 
     private static $icon_class = 'font-icon-block-accordion';
+
+    private static $defaults = [
+        'NestedObject' => ProjectItem::class,
+    ];
 
     public function fielder(Fielder $fielder): void
     {

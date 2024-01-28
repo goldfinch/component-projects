@@ -1,0 +1,7 @@
+---
+Name: goldfinch-component-projects-harvest
+After: "goldfinch/harvest"
+---
+Goldfinch\Harvest\Harvest:
+  harvesters:
+    projects: Goldfinch\Component\Projects\Harvest\ProjectsHarvest

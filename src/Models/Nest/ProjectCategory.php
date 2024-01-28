@@ -3,13 +3,14 @@
 namespace Goldfinch\Component\Projects\Models\Nest;
 
 use Goldfinch\Fielder\Fielder;
+use Goldfinch\Mill\Traits\Millable;
 use Goldfinch\Nest\Models\NestedObject;
 use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Projects\Pages\Nest\ProjectsByCategory;
 
 class ProjectCategory extends NestedObject
 {
-    use FielderTrait;
+    use FielderTrait, Millable;
 
     public static $nest_up = null;
     public static $nest_up_children = [];

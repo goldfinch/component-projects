@@ -4,13 +4,14 @@ namespace Goldfinch\Component\Projects\Pages\Nest;
 
 use Goldfinch\Fielder\Fielder;
 use Goldfinch\Nest\Pages\Nest;
+use Goldfinch\Mill\Traits\Millable;
 use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Projects\Models\Nest\ProjectCategory;
 use Goldfinch\Component\Projects\Controllers\Nest\ProjectsByCategoryController;
 
 class ProjectsByCategory extends Nest
 {
-    use FielderTrait;
+    use FielderTrait, Millable;
 
     private static $table_name = 'ProjectsByCategory';
 

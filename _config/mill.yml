@@ -1,0 +1,10 @@
+---
+Name: goldfinch-component-projects-mill
+After: "goldfinch/mill"
+---
+Goldfinch\Mill\Mill:
+  millable:
+    Goldfinch\Component\Projects\Mills\ProjectsMill: Goldfinch\Component\Projects\Pages\Nest\Projects
+    Goldfinch\Component\Projects\Mills\ProjectsByCategoryMill: Goldfinch\Component\Projects\Pages\Nest\ProjectsByCategory
+    Goldfinch\Component\Projects\Mills\ProjectCategoryMill: Goldfinch\Component\Projects\Models\Nest\ProjectCategory
+    Goldfinch\Component\Projects\Mills\ProjectItemMill: Goldfinch\Component\Projects\Models\Nest\ProjectItem
