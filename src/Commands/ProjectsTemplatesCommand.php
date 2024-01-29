@@ -38,6 +38,10 @@ class ProjectsTemplatesCommand extends GeneratorCommand
                     'from' => $componentPath . 'Pages/Nest/Projects.ss',
                     'to' => $themePath . 'Pages/Nest/Projects.ss',
                 ],
+                [
+                    'from' => $componentPath . 'Pages/Nest/ProjectsByCategory.ss',
+                    'to' => $themePath . 'Pages/Nest/ProjectsByCategory.ss',
+                ],
             ];
 
             return $templater->copyFiles($files);

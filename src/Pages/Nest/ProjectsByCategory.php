@@ -41,7 +41,7 @@ class ProjectsByCategory extends Nest
         $fielder->removeFieldsInTab('Root.General');
         $fielder->removeFieldsInTab('Root.SEO');
 
-        $fielder->disable(['NestedObject', 'NestedPseudo']);
+        $fielder->disable(['NestedObject']); // NestedPseudo
     }
 
     protected function onBeforeWrite()
@@ -49,7 +49,7 @@ class ProjectsByCategory extends Nest
         parent::onBeforeWrite();
 
         $this->NestedObject = ProjectCategory::class;
-        $this->NestedPseudo = 1;
+        // $this->NestedPseudo = 1;
         $this->ShowInMenus = 0;
         $this->ShowInSearch = 0;
     }

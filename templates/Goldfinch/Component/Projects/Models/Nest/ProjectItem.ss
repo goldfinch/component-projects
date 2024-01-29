@@ -53,7 +53,7 @@
 <% with OtherItems(inside, 3) %>
 <hr>
 <div>
-    <h4>Other items (with same categories)</h4>
+    <h4>Other items (with the same categories)</h4>
     <ul>
         <% loop Me %>
         <li><a href="{$Link}">$Title</a></li>
@@ -67,7 +67,7 @@
 <% with OtherItems(outside, 3) %>
 <hr>
 <div>
-    <h4>Other items (outside categories)</h4>
+    <h4>Other items (with other categories)</h4>
     <ul>
         <% loop Me %>
         <li><a href="{$Link}">$Title</a></li>
