@@ -1,3 +1,6 @@
-<% include Goldfinch/Nest/Pages/Nest %>
-<%-- To display loadable list use $Loadable method instead --%>
+<h1>$Title</h1>
+<% include Goldfinch/Nest/Partials/Filter %>
+<%-- To display paginated list: --%>
+<% include Goldfinch/Nest/Partials/List %>
+<%-- To display loadable list: --%>
 <%-- $Loadable(Goldfinch\Component\Projects\Models\Nest\ProjectCategory) --%>

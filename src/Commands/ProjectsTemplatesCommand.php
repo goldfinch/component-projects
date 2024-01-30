@@ -22,8 +22,10 @@ class ProjectsTemplatesCommand extends GeneratorCommand
 
         if (is_string($theme)) {
 
-            $componentPath = BASE_PATH . '/vendor/goldfinch/component-projects/templates/Goldfinch/Component/Projects/';
-            $themePath = 'themes/' . $theme . '/templates/Goldfinch/Component/Projects/';
+            $componentPathTemplates = BASE_PATH . '/vendor/goldfinch/component-projects/templates/';
+            $componentPath = $componentPathTemplates . 'Goldfinch/Component/Projects/';
+            $themeTemplates = 'themes/' . $theme . '/templates/';
+            $themePath = $themeTemplates . 'Goldfinch/Component/Projects/';
 
             $files = [
                 [
@@ -35,12 +37,28 @@ class ProjectsTemplatesCommand extends GeneratorCommand
                     'to' => $themePath . 'Models/Nest/ProjectItem.ss',
                 ],
                 [
+                    'from' => $componentPath . 'Models/Nest/ProjectCategory.ss',
+                    'to' => $themePath . 'Models/Nest/ProjectCategory.ss',
+                ],
+                [
                     'from' => $componentPath . 'Pages/Nest/Projects.ss',
                     'to' => $themePath . 'Pages/Nest/Projects.ss',
                 ],
                 [
                     'from' => $componentPath . 'Pages/Nest/ProjectsByCategory.ss',
                     'to' => $themePath . 'Pages/Nest/ProjectsByCategory.ss',
+                ],
+                [
+                    'from' => $componentPath . 'Partials/ProjectFilter.ss',
+                    'to' => $themePath . 'Partials/ProjectFilter.ss',
+                ],
+                [
+                    'from' => $componentPathTemplates . 'Loadable/Goldfinch/Component/Projects/Models/Nest/ProjectCategory.ss',
+                    'to' => $themeTemplates . 'Loadable/Goldfinch/Component/Projects/Models/Nest/ProjectCategory.ss',
+                ],
+                [
+                    'from' => $componentPathTemplates . 'Loadable/Goldfinch/Component/Projects/Models/Nest/ProjectItem.ss',
+                    'to' => $themeTemplates . 'Loadable/Goldfinch/Component/Projects/Models/Nest/ProjectItem.ss',
                 ],
             ];
 

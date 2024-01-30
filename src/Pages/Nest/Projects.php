@@ -7,6 +7,7 @@ use Goldfinch\Nest\Pages\Nest;
 use Goldfinch\Mill\Traits\Millable;
 use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Projects\Models\Nest\ProjectItem;
+use Goldfinch\Component\Projects\Models\Nest\ProjectCategory;
 use Goldfinch\Component\Projects\Pages\Nest\ProjectsByCategory;
 use Goldfinch\Component\Projects\Controllers\Nest\ProjectsController;
 
@@ -42,5 +43,10 @@ class Projects extends Nest
 
         $this->NestedObject = ProjectItem::class;
         $this->NestedPseudo = 0;
+    }
+
+    public function Categories()
+    {
+        return ProjectCategory::get();
     }
 }

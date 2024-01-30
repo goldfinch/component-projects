@@ -4,13 +4,17 @@ namespace Goldfinch\Component\Projects\Models\Nest;
 
 use Goldfinch\Fielder\Fielder;
 use SilverStripe\Assets\Image;
+use SilverStripe\ORM\DataList;
 use SilverStripe\Control\Director;
 use Goldfinch\Mill\Traits\Millable;
+use SilverStripe\Control\HTTPRequest;
 use Goldfinch\Nest\Models\NestedObject;
 use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Projects\Admin\ProjectsAdmin;
 use Goldfinch\Component\Projects\Pages\Nest\Projects;
 use Goldfinch\Component\Projects\Configs\ProjectConfig;
+use Goldfinch\Component\Projects\Models\Nest\ProjectItem;
+use Goldfinch\Component\Projects\Models\Nest\ProjectCategory;
 
 class ProjectItem extends NestedObject
 {
@@ -101,5 +105,42 @@ class ProjectItem extends NestedObject
         return Director::absoluteBaseURL() .
             '/' .
             $admin->getCMSEditLinkForManagedDataObject($this);
+    }
+
+    /**
+     * Extend nested listExtraFilter by adding additional filter option (category)
+     */
+    public static function listExtraFilter(DataList $list, HTTPRequest $request): DataList
+    {
+        $list = parent::listExtraFilter($list, $request);
+
+        if ($request->getVar('category'))
+        {
+            $list = $list->filter([
+                'Categories.URLSegment' => $request->getVar('category'),
+            ]);
+        }
+
+        return $list;
+    }
+
+    /**
+     * Extend nested loadable by adding additional filter option (category)
+     */
+    public static function loadable(DataList $list, HTTPRequest $request, $data, $config): DataList
+    {
+        $list = parent::loadable($list, $request, $data, $config);
+
+        if ($data && !empty($data))
+        {
+            if (isset($data['urlparams']['category']) && $data['urlparams']['category']) {
+
+                $list = $list->filter([
+                    'Categories.URLSegment' => $data['urlparams']['category'],
+                ]);
+            }
+        }
+
+        return $list;
     }
 }
