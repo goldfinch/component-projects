@@ -17,7 +17,7 @@ class ProjectsHarvest extends Harvest
             'Content' => '',
         ])->first();
 
-        $byCategoryPage = ProjectsByCategory::mill(1)->make([
+        ProjectsByCategory::mill(1)->make([
             'Title' => 'Projects by category',
             'Content' => '',
             'ParentID' => $projectsPage->ID,

@@ -24,10 +24,6 @@
         "jonom/silverstripe-someconfig": "^1.0",
         "dnadesign/silverstripe-elemental": "^5.0"
     },
-    "require-dev": {
-        "phpstan/phpstan": "^1.4.7",
-        "phpunit/phpunit": "^10.0.7"
-    },
     "autoload": {
         "psr-4": {
             "Goldfinch\\Component\\Projects\\": "src/"
