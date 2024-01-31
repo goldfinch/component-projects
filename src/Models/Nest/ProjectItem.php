@@ -53,6 +53,10 @@ class ProjectItem extends NestedObject
         'Image.CMSThumbnail' => 'Image',
     ];
 
+    private static $searchableListFields = [
+        'Title', 'Content',
+    ];
+
     public function fielder(Fielder $fielder): void
     {
         $fielder->require(['Title']);
