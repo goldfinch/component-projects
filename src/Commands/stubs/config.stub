@@ -13,8 +13,8 @@ Goldfinch\Component\Projects\Pages\Nest\Projects:
   extensions:
     - {{ namespace_root_extensions }}ProjectsExtension
 
-Goldfinch\Component\Projects\Pages\Nest\ProjectsByCategory:
-  # icon_class: ""
+# Goldfinch\Component\Projects\Pages\Nest\ProjectsByCategory:
+#   icon_class: ""
 
 Goldfinch\Component\Projects\Controllers\Nest\ProjectsController:
   extensions:
