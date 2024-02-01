@@ -23,7 +23,7 @@
 <p>Sorry, no projects in <strong>$Title</strong> at this moment.</p>
 <% end_if %>
 
-<div style="display: flex">
+<div style="display: flex; width: 100%; padding-top: 20px">
     <div style="width: 50%">
 
         <% if PreviousItem %>

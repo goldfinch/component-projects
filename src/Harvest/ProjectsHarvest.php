@@ -25,7 +25,7 @@ class ProjectsHarvest extends Harvest
 
         ProjectCategory::mill(5)->make();
 
-        ProjectItem::mill(20)->make()->each(function($item) {
+        ProjectItem::mill(30)->make()->each(function($item) {
             $categories = ProjectCategory::get()->shuffle()->limit(rand(0,4));
 
             foreach ($categories as $category) {
