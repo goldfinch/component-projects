@@ -9,11 +9,16 @@
 <div style="margin: 1rem 0">$Content</div>
 
 <% if List %>
+<%-- To display paginated list: --%>
 <ul>
     <% loop List %>
         <li><a href="{$Link}">$Title</a></li>
     <% end_loop %>
 </ul>
+<% include Goldfinch/Nest/Partials/Pagination NestedList=$List %>
+<%-- To display loadable list: --%>
+<%-- $LoadableAs(Goldfinch\Component\Projects\Models\Nest\ProjectCategory, $ID, List) --%>
+
 <% else %>
 <p>Sorry, no projects in <strong>$Title</strong> at this moment.</p>
 <% end_if %>

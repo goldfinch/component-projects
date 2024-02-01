@@ -3,4 +3,4 @@
 <%-- To display paginated list: --%>
 <% include Goldfinch/Nest/Partials/List %>
 <%-- To display loadable list: --%>
-<%-- $Loadable(Goldfinch\Component\Projects\Models\Nest\ProjectCategory) --%>
+<%-- $LoadableAs(Goldfinch\Component\Projects\Models\Nest\ProjectCategory) --%>

@@ -4,6 +4,8 @@ namespace Goldfinch\Component\Projects\Models\Nest;
 
 use Goldfinch\Fielder\Fielder;
 use Goldfinch\Mill\Traits\Millable;
+use SilverStripe\ORM\PaginatedList;
+use SilverStripe\Control\Controller;
 use Goldfinch\Nest\Models\NestedObject;
 use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Projects\Pages\Nest\ProjectsByCategory;
@@ -51,9 +53,11 @@ class ProjectCategory extends NestedObject
 
     public function List()
     {
-        // pagi/loadable ?
+        if (Controller::has_curr()) {
+            $ctrl = Controller::curr();
 
-        return $this->Items();
+            return PaginatedList::create($this->Items(), $ctrl->getRequest()); // ->setPageLength(10);
+        }
     }
 
     public function OtherCategories($type = 'mix', $limit = 6, $escapeEmpty = true)
