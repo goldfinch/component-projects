@@ -3,6 +3,7 @@
 namespace Goldfinch\Component\Projects\Blocks;
 
 use Goldfinch\Fielder\Fielder;
+use Goldfinch\Mill\Traits\Millable;
 use Goldfinch\Fielder\Traits\FielderTrait;
 use DNADesign\Elemental\Models\BaseElement;
 use Goldfinch\Component\Projects\Models\Nest\ProjectItem;
@@ -10,7 +11,7 @@ use Goldfinch\Component\Projects\Models\Nest\ProjectCategory;
 
 class ProjectsBlock extends BaseElement
 {
-    use FielderTrait;
+    use FielderTrait, Millable;
 
     private static $table_name = 'ProjectsBlock';
     private static $singular_name = 'Projects';

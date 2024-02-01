@@ -8,3 +8,4 @@ Goldfinch\Mill\Mill:
     Goldfinch\Component\Projects\Mills\ProjectsByCategoryMill: Goldfinch\Component\Projects\Pages\Nest\ProjectsByCategory
     Goldfinch\Component\Projects\Mills\ProjectCategoryMill: Goldfinch\Component\Projects\Models\Nest\ProjectCategory
     Goldfinch\Component\Projects\Mills\ProjectItemMill: Goldfinch\Component\Projects\Models\Nest\ProjectItem
+    Goldfinch\Component\Projects\Mills\ProjectsBlockMill: Goldfinch\Component\Projects\Blocks\ProjectsBlock
