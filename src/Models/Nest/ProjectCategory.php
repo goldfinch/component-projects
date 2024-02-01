@@ -29,8 +29,12 @@ class ProjectCategory extends NestedObject
         'Items' => ProjectItem::class,
     ];
 
-    private static $searchableListFields = [
+    private static $searchable_list_fields = [
         'Title', 'Content',
+    ];
+
+    private static $summary_fields = [
+        'Items.Count' => 'Projects',
     ];
 
     public function fielder(Fielder $fielder): void

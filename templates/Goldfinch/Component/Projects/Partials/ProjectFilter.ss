@@ -2,14 +2,16 @@
   <div style="margin-bottom: 10px">
     <input type="text" class="text" name="search" minlength="3" placeholder="Search" value="{$paramGet(search)}">
   </div>
-  <% if Categories %>
-    <div>
-      <select name="category">
-      <option value>Select category</option>
-      <% loop Categories %><option value="{$URLSegment}"<% if paramGet(category) == $URLSegment %> selected<% end_if %>>$Title</option><% end_loop %>
-      </select>
-    </div>
-<% end_if %>
+  <% if not ProjectConfig.DisabledCategories %>
+    <% if Categories %>
+      <div style="margin-bottom: 10px">
+        <select name="category">
+        <option value>Select category</option>
+        <% loop Categories %><option value="{$URLSegment}"<% if paramGet(category) == $URLSegment %> selected<% end_if %>>$Title</option><% end_loop %>
+        </select>
+      </div>
+    <% end_if %>
+  <% end_if %>
   <input type="submit" value="Search">
   <% if paramGet(search) || paramGet(category) %><input type="reset" value="Reset" onclick="window.location.search = ''; window.location.href = window.location.href.replace(window.location.search, '')"><% end_if %>
 </form>

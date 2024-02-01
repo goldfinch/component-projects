@@ -6,10 +6,12 @@
     <% end_with %>
 <% end_if %>
 
-<% if Categories %>
-    <div>Categories:
-        <% loop Categories %><% if not IsFirst %>, <% end_if %><a href="{$Link}">$Title</a><% end_loop %>
-    </div>
+<% if not ProjectConfig.DisabledCategories %>
+  <% if Categories %>
+      <div>Categories:
+          <% loop Categories %><% if not IsFirst %>, <% end_if %><a href="{$Link}">$Title</a><% end_loop %>
+      </div>
+  <% end_if %>
 <% end_if %>
 
 <div style="margin: 1rem 0">$Content</div>

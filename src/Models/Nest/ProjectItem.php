@@ -50,12 +50,34 @@ class ProjectItem extends NestedObject
     private static $owns = ['Image', 'Categories'];
 
     private static $summary_fields = [
-        'Image.CMSThumbnail' => 'Image',
+        'Categories.Count' => 'Categories',
     ];
 
-    private static $searchableListFields = [
+    private static $searchable_list_fields = [
         'Title', 'Content',
     ];
+
+    public function GridItemSummaryList()
+    {
+        $list = parent::GridItemSummaryList();
+
+        $list['Image'] = $this->Image()->CMSThumbnail();
+
+        return $list;
+    }
+
+    public function summaryFields()
+    {
+        $fields = parent::summaryFields();
+
+        $cfg = ProjectConfig::current_config();
+
+        if ($cfg->DisabledCategories) {
+            unset($fields['Categories.Count']);
+        }
+
+        return $fields;
+    }
 
     public function fielder(Fielder $fielder): void
     {
@@ -118,11 +140,15 @@ class ProjectItem extends NestedObject
     {
         $list = parent::listExtraFilter($list, $request);
 
+        $filter = [];
+
         if ($request->getVar('category'))
         {
-            $list = $list->filter([
-                'Categories.URLSegment' => $request->getVar('category'),
-            ]);
+            $filter['Categories.URLSegment'] = $request->getVar('category');
+        }
+
+        if (count($filter)) {
+            $list = $list->filter($filter);
         }
 
         return $list;
@@ -137,11 +163,15 @@ class ProjectItem extends NestedObject
 
         if ($data && !empty($data))
         {
+            $filter = [];
+
             if (isset($data['urlparams']['category']) && $data['urlparams']['category']) {
 
-                $list = $list->filter([
-                    'Categories.URLSegment' => $data['urlparams']['category'],
-                ]);
+                $filter['Categories.URLSegment'] = $data['urlparams']['category'];
+            }
+
+            if (count($filter)) {
+                $list = $list->filter($filter);
             }
         }
 
