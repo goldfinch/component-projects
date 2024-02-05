@@ -42,7 +42,7 @@ class ProjectCategory extends NestedObject
 
     public function fielder(Fielder $fielder): void
     {
-        $fielder->require(['Title']);
+        $fielder->required(['Title']);
 
         $fielder->fields([
             'Root.Main' => [
