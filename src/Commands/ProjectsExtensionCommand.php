@@ -17,5 +17,5 @@ class ProjectsExtensionCommand extends GeneratorCommand
 
     protected $stub = './stubs/projects-extension.stub';
 
-    protected $prefix = 'Extension';
+    protected $suffix = 'Extension';
 }

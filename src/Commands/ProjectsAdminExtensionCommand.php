@@ -17,5 +17,5 @@ class ProjectsAdminExtensionCommand extends GeneratorCommand
 
     protected $stub = './stubs/projectsadmin-extension.stub';
 
-    protected $prefix = 'Extension';
+    protected $suffix = 'Extension';
 }

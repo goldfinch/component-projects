@@ -17,5 +17,5 @@ class ProjectCategoryExtensionCommand extends GeneratorCommand
 
     protected $stub = './stubs/projectcategory-extension.stub';
 
-    protected $prefix = 'Extension';
+    protected $suffix = 'Extension';
 }
