@@ -17,57 +17,32 @@ class ProjectsSetCommand extends GeneratorCommand
 
     protected function execute($input, $output): int
     {
-        $command = $this->getApplication()->find(
-            'vendor:component-projects:ext:admin',
-        );
-        $input = new ArrayInput(['name' => 'ProjectsAdmin']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-projects:ext:admin');
+        $command->run(new ArrayInput(['name' => 'ProjectsAdmin']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-projects:ext:config',
-        );
-        $input = new ArrayInput(['name' => 'ProjectConfig']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-projects:ext:config');
+        $command->run(new ArrayInput(['name' => 'ProjectConfig']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-projects:ext:block',
-        );
-        $input = new ArrayInput(['name' => 'ProjectsBlock']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-projects:ext:block');
+        $command->run(new ArrayInput(['name' => 'ProjectsBlock']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-projects:ext:page',
-        );
-        $input = new ArrayInput(['name' => 'Projects']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-projects:ext:page');
+        $command->run(new ArrayInput(['name' => 'Projects']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-projects:ext:controller',
-        );
-        $input = new ArrayInput(['name' => 'ProjectsController']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-projects:ext:controller');
+        $command->run(new ArrayInput(['name' => 'ProjectsController']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-projects:ext:item',
-        );
-        $input = new ArrayInput(['name' => 'ProjectItem']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-projects:ext:item');
+        $command->run(new ArrayInput(['name' => 'ProjectItem']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-projects:ext:category',
-        );
-        $input = new ArrayInput(['name' => 'ProjectCategory']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-projects:ext:category');
+        $command->run(new ArrayInput(['name' => 'ProjectCategory']), $output);
 
         $command = $this->getApplication()->find('vendor:component-projects:config');
-        $input = new ArrayInput(['name' => 'component-projects']);
-        $command->run($input, $output);
+        $command->run(new ArrayInput(['name' => 'component-projects']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-projects:templates',
-        );
-        $input = new ArrayInput([]);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-projects:templates');
+        $command->run(new ArrayInput([]), $output);
 
         return Command::SUCCESS;
     }
