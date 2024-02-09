@@ -4,6 +4,10 @@ Name: goldfinch-component-projects
 Goldfinch\Component\Projects\Admin\ProjectsAdmin:
   extensions:
     - Goldfinch\Helpers\Extensions\BlocksAdminExtension
+
+Goldfinch\Component\Projects\Blocks\ProjectsBlock:
+  extensions:
+    - Goldfinch\Helpers\Extensions\BaseElementExtension
 ---
 Name: goldfinch-component-projects-icon
 Only:
