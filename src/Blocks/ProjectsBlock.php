@@ -3,11 +3,14 @@
 namespace Goldfinch\Component\Projects\Blocks;
 
 use DNADesign\Elemental\Models\BaseElement;
+use Goldfinch\Helpers\Traits\BaseElementTrait;
 use Goldfinch\Component\Projects\Models\Nest\ProjectItem;
 use Goldfinch\Component\Projects\Models\Nest\ProjectCategory;
 
 class ProjectsBlock extends BaseElement
 {
+    use BaseElementTrait;
+
     private static $table_name = 'ProjectsBlock';
     private static $singular_name = 'Projects';
     private static $plural_name = 'Projects';
