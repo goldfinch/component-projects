@@ -2,10 +2,8 @@
 
 namespace Goldfinch\Component\Projects\Pages\Nest;
 
-use Goldfinch\Fielder\Fielder;
 use Goldfinch\Nest\Pages\Nest;
 use Goldfinch\Mill\Traits\Millable;
-use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Projects\Models\Nest\ProjectItem;
 use Goldfinch\Component\Projects\Models\Nest\ProjectCategory;
 use Goldfinch\Component\Projects\Pages\Nest\ProjectsByCategory;
@@ -13,7 +11,7 @@ use Goldfinch\Component\Projects\Controllers\Nest\ProjectsController;
 
 class Projects extends Nest
 {
-    use FielderTrait, Millable;
+    use Millable;
 
     private static $table_name = 'Projects';
 
@@ -27,14 +25,26 @@ class Projects extends Nest
         'NestedObject' => ProjectItem::class,
     ];
 
-    public function fielder(Fielder $fielder): void
+    public function getCMSFields()
     {
+        $fields = parent::getCMSFields();
+
+        $fielder = $fields->fielder($this);
+
         // ..
+
+        return $fields;
     }
 
-    public function fielderSettings(Fielder $fielder): void
+    public function getSettingsFields()
     {
+        $fields = parent::getSettingsFields();
+
+        $fielder = $fields->fielder($this);
+
         $fielder->disable(['NestedObject', 'NestedPseudo']);
+
+        return $fields;
     }
 
     protected function onBeforeWrite()

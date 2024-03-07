@@ -2,14 +2,12 @@
 
 namespace Goldfinch\Component\Projects\Models\Nest;
 
-use Goldfinch\Fielder\Fielder;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataList;
 use SilverStripe\Control\Director;
 use Goldfinch\Mill\Traits\Millable;
 use SilverStripe\Control\HTTPRequest;
 use Goldfinch\Nest\Models\NestedObject;
-use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Projects\Admin\ProjectsAdmin;
 use Goldfinch\Component\Projects\Pages\Nest\Projects;
 use Goldfinch\Component\Projects\Configs\ProjectConfig;
@@ -18,7 +16,7 @@ use Goldfinch\Component\Projects\Models\Nest\ProjectCategory;
 
 class ProjectItem extends NestedObject
 {
-    use FielderTrait, Millable;
+    use Millable;
 
     public static $nest_up = null;
     public static $nest_up_children = [];
@@ -79,8 +77,12 @@ class ProjectItem extends NestedObject
         return $fields;
     }
 
-    public function fielder(Fielder $fielder): void
+    public function getCMSFields()
     {
+        $fields = parent::getCMSFields();
+
+        $fielder = $fields->fielder($this);
+
         $fielder->required(['Title']);
 
         $fielder->fields([
@@ -99,6 +101,8 @@ class ProjectItem extends NestedObject
         if ($cfg->DisabledCategories) {
             $fielder->remove('Categories');
         }
+
+        return $fields;
     }
 
     // type : mix | inside | outside
