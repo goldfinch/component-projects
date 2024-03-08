@@ -29,7 +29,7 @@ class Projects extends Nest
     {
         $fields = parent::getCMSFields();
 
-        $fielder = $fields->fielder($this);
+        $fielder = $this->intFielder($fields)->getFielder();
 
         // ..
 
@@ -40,7 +40,7 @@ class Projects extends Nest
     {
         $fields = parent::getSettingsFields();
 
-        $fielder = $fields->fielder($this);
+        $fielder = $this->intFielder($fields)->getFielder();
 
         $fielder->disable(['NestedObject', 'NestedPseudo']);
 
