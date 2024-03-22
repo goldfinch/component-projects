@@ -33,6 +33,8 @@ class Projects extends Nest
 
         // ..
 
+        $this->extend('updateCMSFields', $fields);
+
         return $fields;
     }
 
@@ -43,6 +45,8 @@ class Projects extends Nest
         $fielder = $fields->getFielder();
 
         $fielder->disable(['NestedObject', 'NestedPseudo']);
+
+        $this->extend('updateSettingsFields', $fields);
 
         return $fields;
     }

@@ -87,10 +87,10 @@ class ProjectItem extends NestedObject
 
         $fielder->fields([
             'Root.Main' => [
+                ...$fielder->media('Image'),
                 $fielder->string('Title'),
                 $fielder->html('Content'),
                 $fielder->tag('Categories'),
-                ...$fielder->media('Image'),
             ],
         ]);
 
@@ -101,6 +101,8 @@ class ProjectItem extends NestedObject
         if ($cfg->DisabledCategories) {
             $fielder->remove('Categories');
         }
+
+        $this->extend('updateCMSFields', $fields);
 
         return $fields;
     }
